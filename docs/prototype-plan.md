@@ -1,7 +1,7 @@
 # **Rencana Prototipe Nusantara**
 
 **Prototipe Ke-1:**
-- **Fokus:** Membuat **Nusantara Interpreter** menggunakan C++ dan ANTLR4.
+- **Fokus:** Membuat **Nusantara Interpreter** menggunakan C++.
 - **Tujuan:** Interpreter pertama yang akan digunakan untuk membangun interpreter Nusantara menggunakan bahasa Nusantara itu sendiri pada prototipe berikutnya.
 
 **Prototipe Ke-2:**
