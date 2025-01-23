@@ -30,8 +30,12 @@ BLOCK_COMMENT: '/*' .*? '*/' -> skip;
 PAREN_OPEN: '('; // Kurung bulat buka
 PAREN_CLOSE: ')'; // Kurung bulat tutup
 
+// Mendefinisikan kata kunci dalam bahasa Nusantara
+KW_MUAT: 'muat'; // Kata kunci untuk memuat file
+
 // Literals yang didukung dalam bahasa Nusantara
 LIT_BUL: [0-9]+; // Literal bilangan bulat (integer)
+LIT_TEKS: '"' ~'"'* '"'; // Literal teks (string)
 
 // Token tambahan yang diperlukan
 IDENTIFIER: [a-zA-Z_][a-zA-Z0-9_]*; // Identifier
@@ -39,14 +43,18 @@ IDENTIFIER: [a-zA-Z_][a-zA-Z0-9_]*; // Identifier
 /* Parser */
 
 // Inisialisasi
-nusantara: expression* EOF
+nusantara: loadFile* expression* EOF
          ;
+
+loadFile: KW_MUAT LIT_TEKS
+        ;
 
 // Expressions
 expression: primaryExpression
           ;
 
 primaryExpression: LIT_BUL
+                 | LIT_TEKS
                  | callFunction
                  ;
 
